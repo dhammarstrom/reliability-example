@@ -1,2 +1,3 @@
 # reliability-example
-Example of relibility calculations
+
+Example of reliability calculations
