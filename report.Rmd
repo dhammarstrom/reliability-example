@@ -1,0 +1,42 @@
+---
+title: "Reliability report isokinetic strength tests"
+author: "Daniel Hammarström"
+output: html_document
+editor_options: 
+  chunk_output_type: console
+---
+
+## Introduction
+
+Introducing isokinetic strength testing.
+
+
+## Methods
+
+How did we do the test.
+
+
+
+```{r, echo = FALSE, message=FALSE, warning=FALSE}
+
+library(readxl)
+library(tidyverse)
+
+reliability_data <- read_excel("data/reliability-data.xlsx") %>%
+  mutate(diff = trial2 - trial1) %>%
+  
+  summarise(s = sd(diff),
+            te = s / sqrt(2), 
+            m = mean(c(trial1, trial2)), 
+            cv = (te / m) * 100) 
+
+cv <- round(reliability_data$cv, 2)
+```
+
+## Results and discussion
+
+The typical error of the test was `r cv`%.
+
+This means that if ...
+
+
