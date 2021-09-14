@@ -1,3 +1,3 @@
 # reliability-example
 
-Example of reliability calculations
+Example of reliability calculations from a reliability study.
